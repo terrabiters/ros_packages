@@ -1,13 +1,19 @@
-ROS PACKAGES
+ROS PACKAGES (view in raw)
 
 Steps for setting up workspace:
-mkdir ~/catkin_ws
-cd ~/catkin_ws
-catkin_make
-cd src
+Install ROS
+git clone https://github.com/jetsonhacks/installROSTX2
+./installROS.sh
+./setupCatkinWorkspace.sh
+
+cd ~/catkin_ws/src
+mkdir terrabot && cd terrabot
 git init
 git remote add ros https://github.com/terrabiters/ros_packages
+rm CMakeLists.txt
 git pull ros master
+cd ..
+catkin_make
 gedit ~/.bashrc
 Add this to end: "source ~/catkin_ws/devel/setup.bash"
 close and repopen a new terminal
